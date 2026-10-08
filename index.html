@@ -346,9 +346,18 @@ const views = {
       ${list}
       <p class="foot">Made by ${esc(D.name)} \u00b7 <a href="${D.linkedin}" target="_blank" rel="noopener">LinkedIn</a></p></div>`;
   },
+  poster(){
+    return `<div class="fade"><h1>The poster</h1>
+      <p class="lead">The A2 poster that brought you here. Pinch to zoom, or download the print file.</p>
+      <a href="poster/poster-A.jpg" target="_blank" rel="noopener"><img src="poster/poster-A.jpg" alt="The Contract Line A2 poster: Scots contract law as a metro map with three lines for formation, validity and termination" style="width:100%;height:auto;border-radius:12px;display:block;margin:14px 0"></a>
+      <a class="btn" href="poster/the-contract-line-A2.pdf" download>${I('external-link')} Download the A2 poster (PDF)</a>
+      <div class="card" style="margin-top:16px"><b>Two other designs became films</b><p class="muted" style="font-size:15px;margin-bottom:0">\u201cThe Life of a Contract\u201d and \u201cBuilt to Last?\u201d started as poster concepts. Watch them in the Videos tab.</p></div>
+      <a class="btn ghost" href="#/videos/life" style="margin-top:10px">${I('play')} Watch the poster films</a></div>`;
+  },
   more(){
     const t = (h, ic, b, s) => `<a class="tile" href="${h}"><span class="chip" style="background:var(--card2);color:var(--ink)">${I(ic)}</span><span class="tx"><b>${b}</b><span>${s}</span></span><span class="go">${I('chevron-right')}</span></a>`;
     return `<div class="fade"><h1>More</h1><div class="tiles">
+      ${t('#/poster', 'scale', 'The poster', 'See or download the A2 poster')}
       ${t('#/glossary', 'book-open', 'Glossary', 'Every term, A to Z')}
       ${t('#/college', 'landmark', 'Our college', 'Contracts all around campus')}
       ${t('#/sources', 'scale', 'Sources', 'The Acts and cases behind every stop')}
@@ -392,7 +401,7 @@ const views = {
 };
 
 const TABS = [['#/', 'house', 'Home', ['', 'home']], ['#/story', 'car', 'Sam', ['story']], ['#/lines', 'route', 'Lines', ['lines', 'line']], ['#/videos', 'clapperboard', 'Videos', ['videos']],
-              ['#/quiz', 'circle-help', 'Quiz', ['quiz']], ['#/more', 'book-open', 'More', ['more', 'glossary', 'college', 'sources', 'about']]];
+              ['#/quiz', 'circle-help', 'Quiz', ['quiz']], ['#/more', 'book-open', 'More', ['more', 'poster', 'glossary', 'college', 'sources', 'about']]];
 document.getElementById('tabs').innerHTML = TABS.map(([h, ic, l]) => `<a href="${h}">${I(ic)}<span>${l}</span></a>`).join('');
 
 function route(keepScroll){
